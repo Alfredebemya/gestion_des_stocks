@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AviGest - Gestion de Produits Avicoles</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+   
+    <!-- Main Content with Sidebar Layout -->
+    <div class="layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li class="sidebar-item">
+                    <a href="index.php" class="sidebar-link">
+                        <i class="fas fa-tachometer-alt"></i> Tableau de bord
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="" class="sidebar-link active">
+                        <i class="fas fa-egg"></i> Gestion des produits
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class="fas fa-tags"></i> Prix du jour
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="gestiondesstock.html" class="sidebar-link">
+                        <i class="fas fa-boxes"></i> Gestion des stocks
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class="fas fa-shopping-cart"></i> Commandes
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class="fas fa-money-bill-wave"></i> Paiements
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class="fas fa-chart-bar"></i> Rapports
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class="fas fa-cogs"></i> Paramètres
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class="fas fa-users"></i> Utilisateurs
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class="fas fa-sign-out-alt"></i> Déconnexion
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <h1 class="mb-2">Tableau de bord</h1>
+            
+            <!-- Dashboard Cards -->
+            <div class="dashboard">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Ventes du jour</h3>
+                        <i class="fas fa-chart-line card-icon"></i>
+                    </div>
+                    <div class="stat">215,000 FCFA</div>
+                    <div class="stat-label">+12% par rapport à hier</div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Commandes</h3>
+                        <i class="fas fa-shopping-bag card-icon"></i>
+                    </div>
+                    <div class="stat">23</div>
+                    <div class="stat-label">8 en attente</div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Stock critique</h3>
+                        <i class="fas fa-exclamation-triangle card-icon"></i>
+                    </div>
+                    <div class="stat">3</div>
+                    <div class="stat-label">Produits à réapprovisionner</div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Clients du jour</h3>
+                        <i class="fas fa-users card-icon"></i>
+                    </div>
+                    <div class="stat">15</div>
+                    <div class="stat-label">4 nouveaux clients</div>
+                </div>
+            </div>
+            
+            <!-- Alert for stock warning -->
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-circle"></i>
+                <div>
+                    <strong>Attention :</strong> 
+                </div>
+            </div>
+            
+            <!-- Recent Orders Table -->
+            <div class="card mb-2">
+                <div class="card-header">
+                    <h3 class="card-title">Commandes récentes</h3>
+                    <button class="btn btn-primary btn-sm">
+                        <i class="fas fa-plus"></i> <!--Nouvelle commande-->
+                    </button>
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>#Réf</th>
+                                <th>Client</th>
+                                <th>Produits</th>
+                                <th>Total</th>
+                                <th>Date</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>CMD-2451</td>
+                                <td>Jean Dupont</td>
+                                <td>Poussins (50)</td>
+                                <td>75,000 FCFA</td>
+                                <td>12/04/2025</td>
+                                <td><span class="badge badge-success">Payé</span></td>
+                                <td class="action-buttons">
+                                    <button class="btn btn-info btn-sm"><i class="fas fa-eye"></i></button>
+                                    <button class="btn btn-warning btn-sm"><i class="fas fa-print"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>CMD-2450</td>
+                                <td>Marie Koné</td>
+                                <td>Provende (5), Poulets (10)</td>
+                                <td>42,500 FCFA</td>
+                                <td>12/04/2025</td>
+                                <td><span class="badge badge-warning">En attente</span></td>
+                                <td class="action-buttons">
+                                    <button class="btn btn-info btn-sm"><i class="fas fa-eye"></i></button>
+                                    <button class="btn btn-warning btn-sm"><i class="fas fa-print"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>CMD-2449</td>
+                                <td>Ibrahim Diallo</td>
+                                <td>Poulets (25)</td>
+                                <td>93,750 FCFA</td>
+                                <td>11/04/2025</td>
+                                <td><span class="badge badge-danger">Annulé</span></td>
+                                <td class="action-buttons">
+                                    <button class="btn btn-info btn-sm"><i class="fas fa-eye"></i></button>
+                                    <button class="btn btn-warning btn-sm"><i class="fas fa-print"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>CMD-2448</td>
+                                <td>Sophie Mbarga</td>
+                                <td>Poussins (100)</td>
+                                <td>150,000 FCFA</td>
+                                <td>11/04/2025</td>
+                                <td><span class="badge badge-success">Payé</span></td>
+                                <td class="action-buttons">
+                                    <button class="btn btn-info btn-sm"><i class="fas fa-eye"></i></button>
+                                    <button class="btn btn-warning btn-sm"><i class="fas fa-print"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center mt-2">
+                    <ul class="pagination">
+                        <li><a href="#"><i class="fas fa-chevron-left"></i></a></li>
+                        <li><a href="#" class="active">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Price of the Day -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Prix du jour (12/04/2025)</h3>
+                    <button class="btn btn-primary btn-sm">
+                        <i class="fas fa-edit"></i> Modifier
+                    </button>
+                </div>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Produit</th>
+                                <th>Type</th>
+                                <th>Unité</th>
+                                <th>Prix du jour</th>
+                                <th>Stock disponible</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Poulets de chair</td>
+                                <td>Volaille</td>
+                                <td>Unité</td>
+                                <td>3,750 FCFA</td>
+                                <td class="text-danger">10</td>
+                            </tr>
+                            <tr>
+                                <td>Poussins</td>
+                                <td>Volaille</td>
+                                <td>Unité</td>
+                                <td>1,500 FCFA</td>
+                                <td class="text-success">150</td>
+                            </tr>
+                            <tr>
+                                <td>Provende démarrage</td>
+                                <td>Aliment</td>
+                                <td>Sac (25kg)</td>
+                                <td>15,000 FCFA</td>
+                                <td class="text-success">25</td>
+                            </tr>
+                            <tr>
+                                <td>Provende croissance</td>
+                                <td>Aliment</td>
+                                <td>Sac (25kg)</td>
+                                <td>14,500 FCFA</td>
+                                <td class="text-warning">15</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
