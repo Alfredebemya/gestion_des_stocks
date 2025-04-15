@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AviGest - Gestion de Produits Avicoles</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🐓</text></svg>">
+</head>
+<body>
+<!-- Zone Header - Fixe en haut -->
+<header class="header" id="header"></header>
+
+<!-- Layout avec menu à gauche et contenu à droite -->
+<div class="layout">
+    <aside class="sidebar" id="menu">
+        <ul class="sidebar-menu">
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link" onclick="loadPage('accueil')">
+                    <i class="fas fa-home"></i> Accueil
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link" onclick="loadPage('index')">
+                    <i class="fas fa-tachometer-alt"></i> Tableau de bord
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link" onclick="loadPage('products')">
+                    <i class="fas fa-box"></i> Produits
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link" onclick="loadPage('inventory')">
+                    <i class="fas fa-warehouse"></i> Inventaire
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link" onclick="loadPage('orders')">
+                    <i class="fas fa-shopping-cart"></i> Commandes
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link" onclick="loadPage('clients')">
+                    <i class="fas fa-users"></i> Clients
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link" onclick="loadPage('suppliers')">
+                    <i class="fas fa-truck"></i> Fournisseurs
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link" onclick="loadPage('reports')">
+                    <i class="fas fa-chart-bar"></i> Rapports
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link" onclick="loadPage('settings')">
+                    <i class="fas fa-cog"></i> Paramètres
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <main class="content" id="main">
+        <!-- Le contenu sera chargé ici dynamiquement -->
+    </main>
+</div>
+
+<!-- Zone Footer -->
+<footer class="footer" id="footer"></footer>
+
+<script>
+    // Fonction pour charger dynamiquement une page dans le contenu principal
+    function loadPage(pagePath) {
+        fetch(pagePath + '.html')
+            .then(res => {
+                if (!res.ok) throw new Error("Page non trouvée");
+                return res.text();
+            })
+            .then(data => {
+                document.getElementById('main').innerHTML = data;
+
+                // Mettre à jour la classe active dans le menu
+                const links = document.querySelectorAll('.sidebar-link');
+                links.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('onclick').includes(pagePath)) {
+                        link.classList.add('active');
+                    }
+                });
+            })
+            .catch(err => {
+                document.getElementById('main').innerHTML = "<p>Erreur de chargement de la page.</p>";
+                console.error(err);
+            });
+    }
+
+    // Charger automatiquement header et footer
+    fetch('header.html')
+        .then(res => res.text())
+        .then(data => document.getElementById('header').innerHTML = data);
+
+    fetch('footer.html')
+        .then(res => res.text())
+        .then(data => document.getElementById('footer').innerHTML = data);
+
+    // Charger page d'accueil par défaut
+    window.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+            loadPage('index'); // Chargement de la page tableau de bord par défaut
+        }, 100);
+    });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
